@@ -20,6 +20,8 @@
 		<AndroidVersionCode>1</AndroidVersionCode>
 
 		<UseInterpreter Condition="'$(TargetFramework)' == 'net6.0-android'">True</UseInterpreter>
+
+		<PublishTrimmed Condition="'$(CONFIGURATION)' == 'Debug'">False</PublishTrimmed>
 	</PropertyGroup>
 
 	<ItemGroup>
