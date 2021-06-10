@@ -1,0 +1,76 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    // ref: https://github.com/dotnet/maui-samples/blob/e0479631842e958ef696900b62551b53b50298d3/.vscode/tasks.json
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "dotnet build ${input:project} -t:${input:target} -p:Configuration=${input:configuration}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ]
+        },
+        {
+            // special target as it uses additional arguments
+            "label": "Run",
+            "type": "shell",
+            "command": "dotnet build ${input:project} \"-t:Run\" -p:TargetFramework=${input:targetframework} -p:Configuration=${input:configuration}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ]
+        },
+    ],
+    "inputs": [
+        {
+            "id": "configuration",
+            "type": "pickString",
+            "default": "Debug",
+            "description": "Select msbuild Build Configuration.",
+            "options": [
+                "Debug",
+                "Release"
+            ]
+        },
+        {
+            // Add additional projects here. They will be available in the drop down
+            // in vscode.
+            "id": "project",
+            "type": "pickString",
+            "default": "MAUICameraSetting/MAUICameraSetting.csproj",
+            "description": "Pick the Project you want to build.",
+            "options": [
+                "MAUICameraSetting/MAUICameraSetting.csproj",
+            ]
+        },
+        {
+            "id": "target",
+            "type": "pickString",
+            "default": "Build",
+            "description": "Select MSBuild Target to run.",
+            "options": [
+                "Build",
+                "Install",
+                "Clean"
+            ]
+        },
+        {
+            "id": "targetframework",
+            "type": "pickString",
+            "default": "net6.0-maccatalyst",
+            "description": "Select TargetFramework",
+            "options": [
+                "net6.0-maccatalyst"
+            ]
+        },
+    ]
+}
