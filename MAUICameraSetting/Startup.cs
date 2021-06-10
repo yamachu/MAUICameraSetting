@@ -4,6 +4,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using Microsoft.Maui.Controls.Compatibility;
 using MAUICameraSetting.Data;
+using MAUICameraSetting.Shared.Services;
 
 namespace MAUICameraSetting
 {
@@ -24,6 +25,9 @@ namespace MAUICameraSetting
 				{
 					services.AddBlazorWebView();
 					services.AddSingleton<WeatherForecastService>();
+					#if __MACCATALYST__
+					services.AddSingleton<ICameraSettingService, MacCatalyst.Services.CameraSettingService>();
+					#endif
 				});
 		}
 	}
