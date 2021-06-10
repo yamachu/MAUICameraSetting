@@ -8,3 +8,6 @@ restore:
 
 run/mac:
 	$(DOTNET) build -t:Run -f net6.0-maccatalyst -c $(CONFIGURATION) $(PROJECT)
+
+clean:
+	find . -name "obj" -o -name "bin" | xargs rm -r
