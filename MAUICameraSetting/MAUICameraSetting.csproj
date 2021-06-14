@@ -3,8 +3,14 @@
 	<PropertyGroup>
 		<!-- iOS, Android, MacCatalyst -->
 		<TargetFrameworks>net6.0-ios;net6.0-android;net6.0-maccatalyst</TargetFrameworks>
-		<!-- NOTE: VSCodeで補完を効かせたい時は、上記のTargetFrameworksをコメントアウトし、以下をアンコメントすると良い -->
-		<!-- <TargetFrameworks>net6.0-maccatalyst</TargetFrameworks> -->
+		<!-- NOTE: VSCodeのC#拡張であるomnisharp-vscodeはコード補完にomnisharp-roslynを使用しているが、
+			現在omnisharp-roslynがTargetFrameworkが存在しないcsprojを読み込んだ際、TargetFrameworksの先頭のFrameworkを対象としてProjectをロードするようになっている
+			See: https://github.com/OmniSharp/omnisharp-roslyn/blob/da1e65b1e2badf80adc7db8ccd37e4cf253ca7b2/src/OmniSharp.MSBuild/ProjectLoader.cs#L166-L182
+			そのため補完を効かせたい場合はTargetFrameworkを指定すると対象のFrameworkの補完が効くようになる
+			以下はnet6.0-maccatalystの補完を効かせるようにしている例である
+		-->
+		<TargetFramework>net6.0-maccatalyst</TargetFramework>
+
 		<OutputType>Exe</OutputType>
 		<SingleProject>true</SingleProject>
 		<RootNamespace>MAUICameraSetting</RootNamespace>
