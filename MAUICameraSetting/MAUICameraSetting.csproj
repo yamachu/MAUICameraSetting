@@ -9,7 +9,7 @@
 			そのため補完を効かせたい場合はTargetFrameworkを指定すると対象のFrameworkの補完が効くようになる
 			以下はnet6.0-maccatalystの補完を効かせるようにしている例である
 		-->
-		<!-- <TargetFramework>net6.0-maccatalyst</TargetFramework/> -->
+		<!-- <TargetFramework>net6.0-maccatalyst</TargetFramework> -->
 
 		<OutputType>Exe</OutputType>
 		<SingleProject>true</SingleProject>
