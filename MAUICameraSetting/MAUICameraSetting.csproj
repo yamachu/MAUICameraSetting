@@ -1,4 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
+	<!-- NOTE: TargetFrameworkSwitcherでTargetFrameworkを切り替える時に読み込むtargets
+		TargetFrameworkが他の箇所で評価される前に必要になるため、一番上位で読み込むことが望ましい
+		下記targetsを更新した後はOmniSharp.MSBuild.ProjectManagerにprojectファイルをリロードさせるため
+		このcsprojファイルをtouchし変更検知させる
+		下記ファイルは拡張機能が流し込むファイルのため、ignoreしてもよい
+	-->
+	<Import Project="$(MSBuildProjectDirectory)\TargetFrameworkSwitcher.targets" Condition="Exists('$(MSBuildProjectDirectory)\TargetFrameworkSwitcher.targets')" />
 
 	<PropertyGroup>
 		<!-- iOS, Android, MacCatalyst -->
