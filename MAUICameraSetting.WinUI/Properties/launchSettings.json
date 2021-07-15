@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "MAUICameraSetting.WinUI": {
+      "commandName": "MsixPackage"
+    }
+  }
+}
